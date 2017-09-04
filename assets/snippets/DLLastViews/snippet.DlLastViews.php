@@ -9,6 +9,7 @@
  * @internal    @properties &expired=Время хранения cookie;text;2592000;2592000;по умолчанию: 30 дней &maxDocs=Сколько документов запоминать;text;5;5
  * @internal    @modx_category Content
  * @internal    @installset base
+ * @documentation GitHub https://github.com/mediakot/DLLastViews
  * @author      Created By mkot, optimization Pathologic
  *
  * @lastupdate  04/09/2017
