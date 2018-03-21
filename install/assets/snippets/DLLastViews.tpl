@@ -13,7 +13,7 @@
  * @reportissues https://github.com/mediakot/DLLastViews
  * @author      Created By mkot, optimization Pathologic
  *
- * @lastupdate  21/03/2017
+ * @lastupdate  21/03/2018
  */
 
 if (!isset($params['mode'])) $params['mode'] = 'register';
