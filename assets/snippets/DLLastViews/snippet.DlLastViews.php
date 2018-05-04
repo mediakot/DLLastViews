@@ -18,6 +18,7 @@
 
 if (!isset($params['mode'])) $params['mode'] = 'register';
 if (!isset($params['tpl'])) $params['tpl'] = '@CODE: <a href="[+url+]">[+title+]</a>';
+if (!isset($params['sortType'])) $params['sortType'] = 'doclist';
 $maxDocs = isset($maxDocs) ? $maxDocs : 5;
 $expired = isset($expired) ? $expired  : 2592000;
 $params['idType'] = 'documents';
@@ -30,11 +31,12 @@ if (isset($_COOKIE['last_view']) and $_COOKIE['last_view'] != '') {
 
 switch ($params['mode']) {
     case 'register':
-        if (!in_array($modx->documentIdentifier, $item)) {
-            array_unshift($item, $modx->documentIdentifier);
-            array_slice($item, 0, $maxDocs - 1);
-            setcookie('last_view', implode(',', $item), time()+$expired, '/');
+        if(in_array($modx->documentIdentifier, $item)){
+            unset($item[array_search($modx->documentIdentifier,$item)]);
         }
+        array_unshift($item, $modx->documentIdentifier);
+        array_slice($item, 0, $maxDocs - 1);
+        setcookie('last_view', implode(',', $item), time()+$expired, '/');
     break;
 
     case 'show':
