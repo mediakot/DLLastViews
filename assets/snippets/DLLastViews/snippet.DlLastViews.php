@@ -35,7 +35,7 @@ switch ($params['mode']) {
             unset($item[array_search($modx->documentIdentifier,$item)]);
         }
         array_unshift($item, $modx->documentIdentifier);
-        array_slice($item, 0, $maxDocs - 1);
+        $item =  array_slice($item, 0, $maxDocs - 1);
         setcookie('last_view', implode(',', $item), time()+$expired, '/');
     break;
 
